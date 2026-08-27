@@ -32,4 +32,5 @@ body,
 
 body {
   font-family: "GeneralSans", sans-serif;
+  cursor: none;
 }

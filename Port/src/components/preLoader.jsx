@@ -1,309 +1,173 @@
-import { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-const sidebarItems = [
-  { name: "Home", path: "/" },
-  { name: "Pages", path: "/pages" },
-  { name: "Portfolio", path: "/portfolio" },
-  { name: "Path", path: "/path" },
-  { name: "Experience", path: "/experience" },
-  { name: "Project", path: "/project" },
-  { name: "About", path: "/about" },
-];
-
-const Navbar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const navbarRef = useRef(null);
-  const logoRef = useRef(null);
-  const menuRef = useRef(null);
-  const sidebarRef = useRef(null);
+const PreLoader = ({ onComplete }) => {
+  const loaderRef = useRef(null);
+  const contentRef = useRef(null);
+  const counterRef = useRef(null);
+  const progressRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        delay: 0.2,
-      });
+    const counter = { value: 0 };
 
-      // Logo animation
-      tl.fromTo(
-        logoRef.current,
-        {
-          opacity: 0,
-          x: -30,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: "power3.out",
+    const tl = gsap.timeline();
+
+    // =========================
+    // LOADING 0 → 100
+    // =========================
+
+    tl.to(counter, {
+      value: 100,
+      duration: 3,
+      ease: "none",
+
+      onUpdate: () => {
+        const value = Math.floor(counter.value);
+
+        // Percentage
+        if (counterRef.current) {
+          counterRef.current.textContent =
+            `${value}`.padStart(2, "0") + "%";
         }
-      );
 
-      // Menu button animation
-      tl.fromTo(
-        menuRef.current,
-        {
-          opacity: 0,
-          scale: 0.7,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.5,
-          ease: "back.out(1.7)",
-        },
-        "-=0.4"
-      );
-    }, navbarRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  // Sidebar animation
-  useEffect(() => {
-    if (!sidebarRef.current) return;
-
-    if (isSidebarOpen) {
-      gsap.to(sidebarRef.current, {
-        x: "0%",
-        duration: 0.7,
-        ease: "power4.out",
-      });
-
-      gsap.fromTo(
-        ".sidebar-link",
-        {
-          opacity: 0,
-          x: 40,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.5,
-          stagger: 0.08,
-          delay: 0.2,
-          ease: "power3.out",
+        // Progress bar
+        if (progressRef.current) {
+          gsap.set(progressRef.current, {
+            width: `${value}%`,
+          });
         }
-      );
-    } else {
-      gsap.to(sidebarRef.current, {
-        x: "100%",
-        duration: 0.6,
+      },
+    })
+
+      // =========================
+      // CONTENT EXIT
+      // =========================
+
+      .to(contentRef.current, {
+        opacity: 0,
+        y: -40,
+        duration: 0.5,
+        ease: "power3.inOut",
+      })
+
+      // =========================
+      // PRELOADER EXIT
+      // =========================
+
+      .to(loaderRef.current, {
+        yPercent: -100,
+        duration: 1,
         ease: "power4.inOut",
+      })
+
+      // =========================
+      // TELL APP TO SHOW HOME
+      // =========================
+
+      .call(() => {
+        onComplete?.();
       });
-    }
-  }, [isSidebarOpen]);
+
+    return () => {
+      tl.kill();
+    };
+  }, [onComplete]);
 
   return (
-    <>
-      {/* ================= NAVBAR ================= */}
-
-      <nav
-        ref={navbarRef}
+    <div
+      ref={loaderRef}
+      className="
+        fixed
+        inset-0
+        z-[9999]
+        flex
+        h-screen
+        w-full
+        items-center
+        justify-center
+        overflow-hidden
+        bg-black
+        text-white
+      "
+    >
+      <div
+        ref={contentRef}
         className="
-          pointer-events-none
-          fixed
-          left-0
-          top-0
-          z-[1000]
-          w-full
+          w-[90%]
+          max-w-[1400px]
         "
       >
-        {/* ================= LOGO ================= */}
+        {/* =========================
+            NAME
+        ========================= */}
 
-        <div
-          ref={logoRef}
-          className="
-            pointer-events-auto
-            absolute
-            left-6
-            top-6
-            md:left-10
-            md:top-8
-            lg:left-12
-            lg:top-10
-          "
-        >
-          <NavLink
-            to="/"
+        <div className="my-16 text-center md:my-20">
+          <h1
             className="
-              font-[GeneralSans]
-              text-lg
-              font-medium
-              tracking-[-0.04em]
-              text-white
-              md:text-xl
+              font-[SFDisplay]
+              text-[clamp(55px,12vw,180px)]
+              font-bold
+              leading-none
+              tracking-[-0.07em]
+              whitespace-nowrap
             "
           >
-            Jagdeep Singh
-          </NavLink>
+            JAGDEEP SINGH
+          </h1>
         </div>
 
-        {/* ================= MENU BUTTON ================= */}
+        {/* =========================
+            LOADING INFO
+        ========================= */}
 
         <div
           className="
-            pointer-events-auto
-            absolute
-            right-6
-            top-6
-            md:right-10
-            md:top-8
-            lg:right-12
-            lg:top-10
-          "
-        >
-          <button
-            ref={menuRef}
-            type="button"
-            onClick={() => setIsSidebarOpen((prev) => !prev)}
-            className="
-              flex
-              h-12
-              w-12
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-white/25
-              bg-black/20
-              backdrop-blur-md
-              transition-all
-              duration-300
-              hover:border-white
-              hover:bg-white/10
-            "
-            aria-label="Toggle navigation"
-          >
-            <span className="relative flex h-5 w-5 items-center justify-center">
-              <span
-                className={`
-                  absolute
-                  h-[1.5px]
-                  w-5
-                  bg-white
-                  transition-transform
-                  duration-300
-                  ${
-                    isSidebarOpen
-                      ? "rotate-45"
-                      : "-translate-y-[4px]"
-                  }
-                `}
-              />
-
-              <span
-                className={`
-                  absolute
-                  h-[1.5px]
-                  w-5
-                  bg-white
-                  transition-opacity
-                  duration-300
-                  ${isSidebarOpen ? "opacity-0" : "opacity-100"}
-                `}
-              />
-
-              <span
-                className={`
-                  absolute
-                  h-[1.5px]
-                  w-5
-                  bg-white
-                  transition-transform
-                  duration-300
-                  ${
-                    isSidebarOpen
-                      ? "-rotate-45"
-                      : "translate-y-[4px]"
-                  }
-                `}
-              />
-            </span>
-          </button>
-        </div>
-      </nav>
-
-      {/* ================= RIGHT SIDEBAR ================= */}
-
-      <aside
-        ref={sidebarRef}
-        className="
-          fixed
-          right-0
-          top-0
-          z-[999]
-          flex
-          h-screen
-          w-[85%]
-          translate-x-full
-          flex-col
-          justify-center
-          bg-black
-          px-10
-          sm:w-[60%]
-          md:w-[45%]
-          lg:w-[35%]
-          lg:px-16
-        "
-      >
-        <div className="mb-10 font-[GeneralSans] text-xs tracking-[0.25em] text-white/40">
-          NAVIGATION
-        </div>
-
-        <div className="flex flex-col gap-5">
-          {sidebarItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              onClick={() => setIsSidebarOpen(false)}
-              className={({ isActive }) =>
-                `
-                sidebar-link
-                font-[GeneralSans]
-                text-3xl
-                font-medium
-                tracking-tight
-                transition-all
-                duration-300
-                md:text-4xl
-                ${
-                  isActive
-                    ? "text-white"
-                    : "text-white/50 hover:translate-x-2 hover:text-white"
-                }
-                `
-              }
-            >
-              {item.name}
-            </NavLink>
-          ))}
-        </div>
-
-        <div
-          className="
-            absolute
-            bottom-8
-            left-10
-            right-10
             flex
             justify-between
             font-[GeneralSans]
-            text-[10px]
-            tracking-[0.2em]
-            text-white/30
-            lg:left-16
-            lg:right-16
+            text-xs
+            tracking-[0.15em]
+            text-white
           "
         >
-          <span>JAGDEEP SINGH</span>
-          <span>2026</span>
+          <span>LOADING</span>
+
+          <span ref={counterRef}>
+            00%
+          </span>
         </div>
-      </aside>
-    </>
+
+        {/* =========================
+            PROGRESS BAR
+        ========================= */}
+
+        <div
+          className="
+            relative
+            mt-4
+            h-[2px]
+            w-full
+            overflow-hidden
+            bg-white/20
+          "
+        >
+          <div
+            ref={progressRef}
+            className="
+              absolute
+              left-0
+              top-0
+              h-full
+              bg-white
+            "
+            style={{
+              width: "0%",
+            }}
+          />
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Navbar;
+export default PreLoader;

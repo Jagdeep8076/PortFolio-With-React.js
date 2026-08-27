@@ -1,11 +1,22 @@
+import { useState } from "react";
 import PreLoader from "./components/preLoader";
 import Hero from "./components/Hero";
+import CustomCursor from "./components/CustomCusor.jsx";
 
 const App = () => {
+  const [isPreloading, setIsPreloading] = useState(true);
+
   return (
     <>
-      <PreLoader />
-      <Hero />
+      <CustomCursor />
+
+      {isPreloading ? (
+        <PreLoader
+          onComplete={() => setIsPreloading(false)}
+        />
+      ) : (
+        <Hero />
+      )}
     </>
   );
 };
