@@ -155,17 +155,10 @@ const Rope = ({ onLightChange }) => {
           bg-transparent
           p-0
           outline-none
-          active:cursor-grabbing
-        "
-      >
-        {/* ====================================================
-            YAHAN HAI MAIN FIX (Wrapper + Fake Extension Rope)
-            Ab gsap is wrapper (ropeRef) ko move karega 
-        ==================================================== */}
+          active:cursor-grabbing">
+      
         <div ref={ropeRef} className="relative origin-top">
-          
-          {/* FAKE EXTENSION ROPE: Ye div image ke theek upar hai. 
-              Jaise hi tu drag karke kheenchega, ye ceiling ka gap bhar dega! */}
+  
           <div 
             className="absolute bottom-[98%] left-1/2 h-[200px] w-[5px] -translate-x-1/2 rounded-t-full bg-[#1c120a]"
             style={{

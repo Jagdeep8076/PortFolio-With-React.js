@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* =========================================
+   FONTS
+========================================= */
+
 @font-face {
   font-family: "SFDisplay";
   src: url("/font/SF-Pro-Display-BlackItalic.otf") format("opentype");
@@ -14,23 +18,87 @@
   font-weight: 400;
 }
 
+
+/* =========================================
+   RESET
+========================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
+
+/* =========================================
+   HTML / BODY
+========================================= */
+
+html {
   width: 100%;
   min-height: 100%;
-  background-color: black;
-  color: white;
-  overflow-x: hidden;
+  background: #000;
+  scroll-behavior: smooth;
 }
 
 body {
+  width: 100%;
+  min-height: 100%;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
   font-family: "GeneralSans", sans-serif;
+
+  /* Custom cursor ke liye */
   cursor: none;
+}
+
+#root {
+  width: 100%;
+  min-height: 100%;
+  background: #000;
+}
+
+
+/* =========================================
+   MAIN PORTFOLIO SCROLL
+========================================= */
+
+.portfolio-scroll {
+  width: 100%;
+  height: 100vh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  scroll-snap-type: y mandatory;
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+
+/* =========================================
+   FULL SCREEN SECTIONS
+========================================= */
+
+.snap-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .portfolio-scroll {
+    scroll-snap-type: y proximity;
+  }
 }

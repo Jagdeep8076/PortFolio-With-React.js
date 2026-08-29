@@ -87,7 +87,7 @@ const Hero = () => {
       </div>
 
       {/* ROPE */}
-      <div className="absolute left-1/2 top-0 z-[70] -translate-x-1/2">
+      <div className="absolute left-[35%] top-0 z-[70] -translate-x-1/2">
         <Rope onLightChange={setLightOn} />
       </div>
 
@@ -198,8 +198,6 @@ const Hero = () => {
           DEVELOPER
         </div>
       </div>
-
-      {/* CHARACTER - NEVER HIDDEN / NEVER RESTARTED */}
       <Character />
 
       {/* FLOOR LIGHT */}
@@ -248,88 +246,230 @@ const Hero = () => {
           <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-white/80" />
         </div>
       </div>
+{/* =========================
+    HERO FOOTER
+========================= */}
 
-      {/* FOOTER */}
-      <div
-        className="
-          absolute
-          bottom-0
-          left-5
-          right-5
-          z-[50]
-          border-t
-          border-white/10
-          pb-5
-          pt-4
-          md:left-10
-          md:right-10
-          lg:left-12
-          lg:right-12
-        "
-      >
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-[9px] uppercase tracking-[0.18em] text-white/55">
-              Based in India
-            </p>
+<footer
+  className="
+    absolute
+    bottom-0
+    left-0
+    right-0
+    z-[50]
+    px-5
+    pb-5
+    md:px-10
+    md:pb-7
+    lg:px-12
+    lg:pb-8
+  "
+>
+  <div
+    className="
+      border-t
+      border-white/15
+      pt-5
+      md:pt-6
+      lg:pt-7
+    "
+  >
+    <div
+      className="
+        grid
+        grid-cols-2
+        items-center
+        gap-y-6
+        md:grid-cols-3
+      "
+    >
 
-            <p className="mt-1 flex items-center gap-2 text-[9px] uppercase tracking-[0.18em] text-white/85">
-              Available for Freelance
-              <span className="h-1.5 w-1.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]" />
-            </p>
-          </div>
+      {/* =================================
+          LEFT — LOCATION
+      ================================= */}
 
-          <div className="hidden items-center gap-12 text-center md:flex">
-            <div>
-              <div className="text-2xl font-light">3+</div>
-              <p className="text-[8px] uppercase tracking-[0.18em] text-white/45">
-                Projects
-              </p>
-            </div>
+      <div className="flex flex-col">
+        <span
+          className="
+            font-[GeneralSans]
+            text-[10px]
+            uppercase
+            tracking-[0.22em]
+            text-white/50
+            md:text-[11px]
+          "
+        >
+          Based in India
+        </span>
 
-            <div className="border-l border-white/10 pl-12">
-              <div className="text-2xl font-light">2+</div>
-              <p className="text-[8px] uppercase tracking-[0.18em] text-white/45">
-                Certificates
-              </p>
-            </div>
+        <div className="mt-2 flex items-center gap-2">
+          <span
+            className="
+              font-[GeneralSans]
+              text-[10px]
+              uppercase
+              tracking-[0.2em]
+              text-white/80
+              md:text-[11px]
+            "
+          >
+            Available for Freelance
+          </span>
 
-            <div className="border-l border-white/10 pl-12">
-              <div className="text-2xl font-light">100%</div>
-              <p className="text-[8px] uppercase tracking-[0.18em] text-white/45">
-                Dedication
-              </p>
-            </div>
-          </div>
-
-          <div className="hidden items-center gap-6 text-[9px] uppercase tracking-[0.15em] text-white/60 md:flex">
-            <a
-              href="https://github.com/Jagdeep8076"
-              target="_blank"
-              rel="noreferrer"
-              className="transition hover:text-white"
-            >
-              GitHub
-            </a>
-
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className="transition hover:text-white"
-            >
-              LinkedIn
-            </a>
-
-            <a
-              href="mailto:your@email.com"
-              className="transition hover:text-white"
-            >
-              Email
-            </a>
-          </div>
+          <span
+            className="
+              h-1.5
+              w-1.5
+              rounded-full
+              bg-green-400
+              shadow-[0_0_10px_rgba(74,222,128,0.8)]
+            "
+          />
         </div>
       </div>
+
+
+      {/* =================================
+          CENTER — MOTTO
+      ================================= */}
+
+      <div
+        className="
+          hidden
+          h-full
+          items-center
+          justify-center
+          border-l
+          border-white/10
+          md:flex
+        "
+      >
+        <p
+          className="
+            font-[GeneralSans]
+            text-[10px]
+            uppercase
+            tracking-[0.38em]
+            text-white/55
+            lg:text-[11px]
+          "
+        >
+          EAT
+          <span className="mx-3 text-white/20">·</span>
+
+          SLEEP
+          <span className="mx-3 text-white/20">·</span>
+
+          CODE
+          <span className="mx-3 text-white/20">·</span>
+
+          REPEAT
+        </p>
+      </div>
+
+
+   {/* =================================
+    RIGHT — SOCIALS
+================================= */}
+
+<div
+  className="
+    flex
+    items-center
+    justify-center
+    gap-10
+    border-l
+    border-white/10
+    pl-8
+    md:h-full
+    md:pl-10
+    lg:pl-12
+    translate-x-8
+  "
+>
+  <a
+    href="https://github.com/Jagdeep8076"
+    target="_blank"
+    rel="noreferrer"
+    className="
+      group
+      flex
+      flex-col
+      gap-1
+      transition-all
+      duration-300
+    "
+  >
+    <span
+      className="
+        font-[GeneralSans]
+        text-[10px]
+        uppercase
+        tracking-[0.18em]
+        text-white/55
+        transition
+        group-hover:text-white
+        md:text-[11px]
+      "
+    >
+      GitHub
+    </span>
+
+    <span
+      className="
+        h-px
+        w-0
+        bg-white
+        transition-all
+        duration-300
+        group-hover:w-full
+      "
+    />
+  </a>
+
+  <a
+    href="https://www.linkedin.com"
+    target="_blank"
+    rel="noreferrer"
+    className="
+      group
+      flex
+      flex-col
+      gap-1
+      transition-all
+      duration-300
+    "
+  >
+    <span
+      className="
+        font-[GeneralSans]
+        text-[10px]
+        uppercase
+        tracking-[0.18em]
+        text-white/55
+        transition
+        group-hover:text-white
+        md:text-[11px]
+      "
+    >
+      LinkedIn
+    </span>
+
+    <span
+      className="
+        h-px
+        w-0
+        bg-white
+        transition-all
+        duration-300
+        group-hover:w-full
+      "
+    />
+  </a>
+</div>
+    </div>
+  </div>
+</footer>
     </section>
   );
 };
