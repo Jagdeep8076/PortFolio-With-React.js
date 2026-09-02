@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import Navbar from "../Navbar";
+
 import Rope from "./Rope";
 import Character from "./Character";
 
@@ -83,7 +83,7 @@ const Hero = () => {
     >
       {/* NAVBAR */}
       <div className="absolute inset-x-0 top-0 z-[60]">
-        <Navbar />
+       
       </div>
 
       {/* ROPE */}

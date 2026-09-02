@@ -27,37 +27,8 @@ const Navbar = () => {
 
   return (
     <>
-
       <nav className="absolute left-0 top-0 z-[1000] w-full">
-
-        <button
-          type="button"
-          onClick={() => handleNavigation("#home")}
-          className="
-            absolute
-            left-6
-            top-6
-            cursor-pointer
-            border-none
-            bg-transparent
-            p-0
-            font-[GeneralSans]
-            text-xl
-            font-medium
-            tracking-[-0.04em]
-            text-white
-            outline-none
-            md:left-10
-            md:top-8
-            lg:left-12
-            lg:top-10
-          "
-        >
-          Jagdeep Singh
-        </button>
-
-        {/* ================= MENU BUTTON ================= */}
-
+        {/* Menu Button */}
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
@@ -89,8 +60,7 @@ const Navbar = () => {
           aria-expanded={isOpen}
         >
           <span className="relative flex h-5 w-5 items-center justify-center">
-            {/* TOP LINE */}
-
+            {/* Top Line */}
             <span
               className={`
                 absolute
@@ -107,8 +77,7 @@ const Navbar = () => {
               `}
             />
 
-            {/* MIDDLE LINE */}
-
+            {/* Middle Line */}
             <span
               className={`
                 absolute
@@ -125,8 +94,7 @@ const Navbar = () => {
               `}
             />
 
-            {/* BOTTOM LINE */}
-
+            {/* Bottom Line */}
             <span
               className={`
                 absolute
@@ -146,10 +114,7 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* =====================================================
-          BACKDROP
-      ===================================================== */}
-
+      {/* Backdrop */}
       <div
         onClick={() => setIsOpen(false)}
         className={`
@@ -168,10 +133,7 @@ const Navbar = () => {
         `}
       />
 
-      {/* =====================================================
-          RIGHT SIDEBAR
-      ===================================================== */}
-
+      {/* Right Sidebar */}
       <aside
         className={`
           fixed
@@ -200,8 +162,6 @@ const Navbar = () => {
           }
         `}
       >
-        {/* ================= TOP LABEL ================= */}
-
         <div
           className="
             absolute
@@ -224,16 +184,12 @@ const Navbar = () => {
           </p>
         </div>
 
-        {/* ================= NAVIGATION ================= */}
-
         <div className="flex flex-col gap-5">
           {sidebarItems.map((item) => (
             <button
               key={item.path}
               type="button"
-              onClick={() =>
-                handleNavigation(item.path)
-              }
+              onClick={() => handleNavigation(item.path)}
               className="
                 group
                 flex
@@ -247,8 +203,6 @@ const Navbar = () => {
                 outline-none
               "
             >
-              {/* NUMBER */}
-
               <span
                 className="
                   w-6
@@ -264,8 +218,6 @@ const Navbar = () => {
               >
                 {item.number}
               </span>
-
-              {/* NAME */}
 
               <span
                 className="
@@ -288,8 +240,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* ================= BOTTOM INFO ================= */}
-
         <div
           className="
             absolute
@@ -306,8 +256,6 @@ const Navbar = () => {
             lg:right-16
           "
         >
-          {/* LEFT */}
-
           <div className="flex flex-col gap-1">
             <span
               className="
@@ -333,8 +281,6 @@ const Navbar = () => {
               Frontend Developer
             </span>
           </div>
-
-          {/* RIGHT */}
 
           <span
             className="

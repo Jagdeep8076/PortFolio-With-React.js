@@ -26,7 +26,6 @@ const Character = () => {
         pt-20
         mix-blend-screen 
       "
-      /* ^^^ FIX: mix-blend-screen yahan wrapper par lagana zaroori hai ^^^ */
     >
       <video
         ref={videoRef}

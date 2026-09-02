@@ -3,6 +3,8 @@ import PreLoader from "./components/preLoader";
 import CustomCursor from "./components/CustomCusor.jsx";
 import Hero from "./components/Hero/Hero.jsx";
 import About from "./components/About/About.jsx";
+import Skills from "./Skills/skills.jsx";
+import Navbar from "./components/Navbar.jsx";
 
 const App = () => {
   const [isPreloading, setIsPreloading] = useState(true);
@@ -16,17 +18,27 @@ const App = () => {
           onComplete={() => setIsPreloading(false)}
         />
       ) : (
-        <main className="portfolio-scroll">
-          {/* HOME */}
-          <section className="snap-section">
-            <Hero />
-          </section>
+        <>
+          {/* NAVBAR placed outside snap-sections so it stays fixed on screen */}
+          <Navbar />
 
-          {/* ABOUT */}
-          <section className="snap-section">
-            <About />
-          </section>
-        </main>
+          <main className="portfolio-scroll">
+            {/* HOME */}
+            <section className="snap-section">
+              <Hero />
+            </section>
+
+            {/* ABOUT */}
+            <section className="snap-section">
+              <About />
+            </section>
+
+            {/* SKILLS */}
+            <section className="snap-section">
+              <Skills />
+            </section>
+          </main>
+        </>
       )}
     </>
   );
