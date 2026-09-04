@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import * as THREE from "three";
-
+gsap.registerPlugin(ScrollTrigger);
 
 const ThreeCanvas = () => {
   const mountRef = useRef(null);
