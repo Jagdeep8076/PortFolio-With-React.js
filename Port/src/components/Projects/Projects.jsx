@@ -16,49 +16,45 @@ const projects = [
     live: "https://nexora-ai-ten-fawn.vercel.app?_vercel_share=gXQ0WnmI4kYJT6yCQfDwEJjLGSBNKlnd",
     github: "https://github.com/Jagdeep8076/BACKEND2.0/tree/main/Nexora%20AI",
   },
-
   {
     id: 2,
     number: "02",
-    title: "WEATHER",
-    highlight: "APP",
-    category: "WEATHER FORECASTING",
+    title: "K72",
+    highlight: "CLONE",
+    category: "WEBSITE UI",
     description:
-      "A responsive weather forecasting application that provides real-time weather information with a clean interface.",
-    tech: ["React", "JavaScript", "API", "Tailwind CSS"],
-    image: "/projects/weather.png",
-    live: "#",
-    github: "#",
+      "A modern and responsive frontend clone inspired by the K72 website, built using React, Vite, Tailwind CSS, and GSAP.",
+    tech: ["REACT.JS", "JavaScript", "GSAP", "THREE.JS", "TAILWIND-CSS"],
+    image: "/projects/k72.png",
+    live: "https://k72-clone-iota.vercel.app/",
+    github: "https://github.com/Jagdeep8076/k72-clone",
   },
-
   {
     id: 3,
     number: "03",
-    title: "NETFLIX",
+    title: "Cynthia Ugwu",
     highlight: "CLONE",
-    category: "STREAMING PLATFORM",
+    category: "AWARD-PORTFOLIO",
     description:
-      "A Netflix-inspired streaming interface with movie sections, categories and a responsive modern design.",
-    tech: ["React", "Tailwind CSS", "TMDB API"],
-    image: "/projects/netflix.png",
-    live: "#",
-    github: "#",
+      "A responsive frontend inspired by Cynthia Ugwu's portfolio website.",
+    tech: ["HTML5", "CSS", "JAVASCRIPT", "LOCOMOTIVESCROLL"],
+    image: "/projects/Cynthia Ugwu.png",
+    live: "https://your-vercel-link.vercel.app/",
+    github: "https://github.com/Jagdeep8076/-Cynthia-Ugwu-frontend-only ",
   },
-
   {
     id: 4,
     number: "04",
     title: "MACOS",
-    highlight: "CLONE",
+    highlight: "OS",
     category: "DESKTOP EXPERIENCE",
     description:
       "A macOS-inspired desktop experience with interactive windows, applications and smooth user interactions.",
     tech: ["React", "JavaScript", "SCSS"],
-    image: "/projects/macos.png",
-    live: "#",
-    github: "#",
+    image: "/projects/MAC-OS.png",
+    live: "https://mac-os-psi-ten.vercel.app?_vercel_share=cg08VtaDjUxRJBddGCB34Q4IxqIwGSDl",
+    github: "https://github.com/Jagdeep8076/MAC-OS",
   },
-
   {
     id: 5,
     number: "05",
@@ -69,8 +65,30 @@ const projects = [
       "A short-video social interface focused on smooth interactions, modern UI and an engaging browsing experience.",
     tech: ["React", "JavaScript", "CSS"],
     image: "/projects/reels.png",
-    live: "#",
-    github: "#",
+    live: "https://reels-xp95.vercel.app?_vercel_share=JO53xI9IgDMv6T5UIzrd8kIRXiwtsbl4",
+    github: "https://github.com/Jagdeep8076/reels-",
+  },
+  {
+    id: 6,
+    number: "06",
+    title: "INSTAGRAM-CLONE",
+    highlight: "SOCIAL-MEDIA",
+    category: "SOCIAL-EXPERIENCE",
+    description:
+      "A full-stack Instagram-inspired social media application built with a modern React frontend and a Node.js/Express backend.",
+    tech: [
+      "React.js",
+      "Vite",
+      "SCSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "ImageKit",
+    ],
+    image: "/projects/Instagram.png",
+    live: "https://instagram-clone-frontend-xi.vercel.app/login",
+    github: "https://github.com/Jagdeep8076/instagram-clone-frontend",
   },
 ];
 
@@ -86,9 +104,7 @@ const Projects = () => {
   };
 
   const previousProject = () => {
-    setActiveIndex(
-      (prev) => (prev - 1 + projects.length) % projects.length
-    );
+    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   useEffect(() => {
@@ -110,11 +126,7 @@ const Projects = () => {
         x: difference * 330,
         scale: difference === 0 ? 1 : 0.72,
         opacity:
-          Math.abs(difference) > 2
-            ? 0
-            : difference === 0
-            ? 1
-            : 0.42,
+          Math.abs(difference) > 2 ? 0 : difference === 0 ? 1 : 0.42,
         rotateY: difference * -7,
         duration: 0.65,
         ease: "power3.out",
@@ -142,15 +154,11 @@ const Projects = () => {
 
   return (
     <>
-      {/* ================= PROJECT SECTION ================= */}
-
       <section
         className="relative min-h-screen w-full overflow-hidden bg-black text-white"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* HEADER */}
-
         <div className="relative z-30 mx-auto flex w-[90%] items-end gap-5 pt-20">
           <div>
             <p className="mb-2 text-[9px] tracking-[0.5em] text-white/40">
@@ -158,10 +166,7 @@ const Projects = () => {
             </p>
 
             <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
-              MY{" "}
-              <span className="text-white/30">
-                PROJECTS
-              </span>
+              MY <span className="text-white/30">PROJECTS</span>
             </h2>
           </div>
 
@@ -173,8 +178,6 @@ const Projects = () => {
             <p>BUILD</p>
           </div>
         </div>
-
-        {/* ================= CAROUSEL ================= */}
 
         <div className="relative mx-auto flex h-[560px] w-full items-center justify-center overflow-hidden md:h-[620px]">
           {projects.map((project, index) => (
@@ -196,8 +199,6 @@ const Projects = () => {
             />
           ))}
 
-          {/* PREVIOUS */}
-
           <button
             type="button"
             onClick={previousProject}
@@ -205,8 +206,6 @@ const Projects = () => {
           >
             ←
           </button>
-
-          {/* NEXT */}
 
           <button
             type="button"
@@ -216,8 +215,6 @@ const Projects = () => {
             →
           </button>
         </div>
-
-        {/* ================= PAGINATION ================= */}
 
         <div className="relative z-30 flex justify-center gap-6">
           {projects.map((project, index) => (
@@ -241,8 +238,6 @@ const Projects = () => {
         </p>
       </section>
 
-      {/* ================= PROJECT DETAIL ================= */}
-
       {selectedProject && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-xl md:p-8"
@@ -252,8 +247,6 @@ const Projects = () => {
             className="relative max-h-[90vh] w-full max-w-6xl overflow-auto rounded-3xl border border-white/15 bg-[#080808]"
             onClick={(event) => event.stopPropagation()}
           >
-            {/* CLOSE */}
-
             <button
               type="button"
               onClick={() => setSelectedProject(null)}
@@ -263,28 +256,22 @@ const Projects = () => {
             </button>
 
             <div className="grid min-h-[600px] grid-cols-1 lg:grid-cols-2">
-              {/* IMAGE */}
-
               <div className="flex items-center justify-center border-b border-white/10 p-6 lg:border-b-0 lg:border-r lg:p-10">
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  className="max-h-[65vh] w-full object-contain grayscale"
+                  className="max-h-[65vh] w-full object-contain"
                 />
               </div>
 
-              {/* CONTENT */}
-
               <div className="flex flex-col justify-center p-7 md:p-12">
                 <p className="mb-4 text-[10px] tracking-[0.4em] text-white/40">
-                  {selectedProject.number} /{" "}
-                  {selectedProject.category}
+                  {selectedProject.number} / {selectedProject.category}
                 </p>
 
                 <h3 className="text-5xl font-black leading-[0.85] tracking-[-0.04em] md:text-7xl">
                   {selectedProject.title}
                   <br />
-
                   <span className="text-transparent [-webkit-text-stroke:1px_white]">
                     {selectedProject.highlight}
                   </span>
@@ -296,8 +283,6 @@ const Projects = () => {
                   {selectedProject.description}
                 </p>
 
-                {/* TECHNOLOGIES */}
-
                 <div className="mt-8 flex flex-wrap gap-2">
                   {selectedProject.tech.map((tech) => (
                     <span
@@ -308,8 +293,6 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-
-                {/* BUTTONS */}
 
                 <div className="mt-10 flex flex-wrap gap-4">
                   <a

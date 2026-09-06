@@ -1,0 +1,67 @@
+export const certificates = [
+  {
+    id: 1,
+    name: "5-Day AI Agents Intensive Course with Google",
+    issuer: "Kaggle | Google",
+    category: "AI & Data",
+    issueDate: "18 Dec, 2025",
+    credentialId: "KAG-AI-AGENTS",
+    credentialUrl: "https://www.kaggle.com",
+    media: "/certificates/kaggle.png",
+    skills: ["AI Agents", "LLMs", "Generative AI", "Python"],
+    summary:
+      "Successfully earned the badge for architecting and evaluating autonomous AI Agents, function calling workflows, and Gemini LLM systems.",
+  },
+  {
+    id: 2,
+    name: "JavaScript (Basic)",
+    issuer: "HackerRank",
+    category: "Development",
+    issueDate: "21 Jun, 2026",
+    credentialId: "517EE7943545",
+    credentialUrl: "https://www.hackerrank.com/certificates/517ee7943545",
+    media: "/certificates/HackerRank.png",
+    skills: ["JavaScript", "ES6+", "Algorithms", "Problem Solving"],
+    summary:
+      "Validates core JavaScript competencies including data structures, algorithmic thinking, execution contexts, and asynchronous operations.",
+  },
+  {
+    id: 3,
+    name: "Developing Sites for the Web",
+    issuer: "IBM SkillsBuild",
+    category: "Development",
+    issueDate: "01 Aug, 2025",
+    credentialId: "MDL-262",
+    credentialUrl: "https://skills.yourlearning.ibm.com/certificate/MDL-262",
+    media: "/certificates/website.png",
+    skills: ["Web Development", "Frontend Layouts", "DOM Manipulation"],
+    summary:
+      "In-depth course on designing, structuring, and deploying functional websites using modern web development workflows.",
+  },
+  {
+    id: 4,
+    name: "Introduction to HTML and CSS",
+    issuer: "IBM SkillsBuild",
+    category: "Development",
+    issueDate: "19 Jul, 2025",
+    credentialId: "MDL-263",
+    credentialUrl: "https://skills.yourlearning.ibm.com/certificate/MDL-263",
+    media: "/certificates/html and css.png",
+    skills: ["HTML5", "CSS3", "Responsive Layouts", "Web Styling"],
+    summary:
+      "Foundations of semantic web markup, modern CSS box models, media queries, and responsive cross-browser styling.",
+  },
+  {
+    id: 5,
+    name: "Cloud Technical Series: Gemini at Work Edition",
+    issuer: "Google Cloud",
+    category: "Cloud",
+    issueDate: "30 Oct, 2025",
+    credentialId: "GCLOUD-CTS-2025",
+    credentialUrl: "https://cloud.google.com",
+    media: "/certificates/Cloud-Technically.jpeg",
+    skills: ["Google Cloud", "Gemini AI", "Cloud Architecture", "GenAI"],
+    summary:
+      "Architectural implementation of Gemini across enterprise workflows, cloud infrastructure, and AI engineering.",
+  },
+];

@@ -5,7 +5,7 @@ const sidebarItems = [
   { number: "02", name: "About", path: "#about" },
   { number: "03", name: "Skills", path: "#skills" },
   { number: "04", name: "Projects", path: "#projects" },
-  { number: "05", name: "Experience", path: "#experience" },
+  { number: "05", name: "Certificates", path: "#certificates" },
   { number: "06", name: "Contact", path: "#contact" },
 ];
 
