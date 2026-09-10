@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PreLoader from "./components/preLoader";
+import PreLoader from "./components/Preloader/preLoader.jsx";
 import CustomCursor from "./components/CustomCusor.jsx";
 import Hero from "./components/Hero/Hero.jsx";
 import About from "./components/About/About.jsx";

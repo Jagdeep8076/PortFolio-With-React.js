@@ -4,7 +4,7 @@ import gsap from "gsap";
 const Rope = ({ onLightChange }) => {
   const [isOn, setIsOn] = useState(false);
 
-  // Yahan reference ab direct image par nahi, uske wrapper div par hoga
+  
   const ropeRef = useRef(null);
   const isDraggingRef = useRef(false);
   const startYRef = useRef(0);
