@@ -7,6 +7,7 @@ import Skills from "./Skills/skills.jsx";
 import Projects from "./components/Projects/Projects.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Certificates from "./components/Certificates/Certificates.jsx";
+import Contact from "./components/Contact/Contact.jsx";
 
 const App = () => {
   const [isPreloading, setIsPreloading] = useState(true);
@@ -40,6 +41,10 @@ const App = () => {
 
             <section id="certificates" className="snap-section min-h-screen h-auto">
               <Certificates />
+            </section>
+
+            <section id="certificates" className="snap-section min-h-screen h-auto">
+              <Contact />
             </section>
           </main>
         </div>
